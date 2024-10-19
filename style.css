@@ -13,7 +13,7 @@ body {
 #textarea {
   background-color: #242833;
   resize: none;
-  width: 25%;
+  width: 33%;
   height: 100vh;
   padding: 25px;
   margin: 0;
@@ -28,7 +28,7 @@ body {
 
 #output {
   background-color: #fff;
-  width: 75%;
+  width: 66%;
   height: 100vh;
   padding: 25px;
 }
