@@ -66,6 +66,7 @@ let themeStyles = (textColor, bg, bgSize, bgColor, bgBlendMode, textareaValue) =
 
 
 // Themes
+// NOTE: Error in values, because it clears user input
 let themes = () => {
   if (textarea.value === "nope:theme") {
 
