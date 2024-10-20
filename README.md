@@ -8,3 +8,6 @@ Snippets:
 - nope:theme => manara, tishana...
 - nope:red => 🐰🥚
 - nope:save => "Ain't Nobody Got Time For That"
+
+![VSNope](assets/vsnope_original.gif "VSNope")
+<!-- ![VSNope](assets/vsnope.gif "VSNope") -->
