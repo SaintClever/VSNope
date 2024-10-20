@@ -5,12 +5,11 @@ let output = document.querySelector("#output");
 let snippets = {
 "nope:css": '<link rel="stylesheet" href="style.css">',
 
-"nope:red": `
-    <h2>Bye Bye Bye <s style="color: red;">Codesandbox</s> and <s style="color: red;">VSCode</s></h2>
-    <video controls autoplay width="48%">
-    <source src="assets/Deadpool and Wolverine - Bye Bye Bye.mp4" type="video/mp4">
-    </video>
-    `,
+"nope:red": `<h2>Bye Bye Bye <s style="color: red;">Codesandbox</s> and <s style="color: red;">VSCode</s></h2>
+
+<video controls autoplay width="45%">
+  <source src="assets/Deadpool and Wolverine - Bye Bye Bye.mp4" type="video/mp4">
+</video>`,
 
 "nope:!":`<!DOCTYPE html>
 <html lang="en">
@@ -61,12 +60,18 @@ let themes = () => {
 
     let theme = prompt(`
       Available Themes:
-      - matrix
       - deadpool
       - halloween
-      - minara
+      - manara
+      - matrix
       - tishana
     `)
+
+    if (theme.toLowerCase() === "deadpool") {
+      textarea.style.backgroundColor = "black";
+      textarea.style.color = "red";
+      textarea.value = '';
+    }
 
     if (theme.toLowerCase() === "matrix") {
       textarea.style.backgroundColor = "black";
@@ -74,9 +79,23 @@ let themes = () => {
       textarea.value = '';
     }
 
-    if (theme.toLowerCase() === "deadpool") {
+    if (theme.toLowerCase() === "manara") {
       textarea.style.backgroundColor = "black";
-      textarea.style.color = "red";
+      textarea.style.color = "blue";
+      textarea.style.background = "url('assets/manara.png') no-repeat center";
+      textarea.style.backgroundSize = "cover";
+      textarea.style.backgroundColor = "rgba(255, 255, 255, 0.5)";
+      textarea.style.backgroundBlendMode = "lighten";
+      textarea.value = '';
+    }
+
+    if (theme.toLowerCase() === "tishana") {
+      textarea.style.backgroundColor = "white";
+      textarea.style.color = "hotpink";
+      textarea.style.background = "url('assets/jigglypuff.gif') no-repeat center";
+      textarea.style.backgroundSize = "cover";
+      textarea.style.backgroundColor = "rgba(255, 255, 255, 0.5)";
+      textarea.style.backgroundBlendMode = "lighten";
       textarea.value = '';
     }
   }
