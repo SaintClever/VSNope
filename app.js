@@ -54,49 +54,43 @@ let preventTab = (e) => {
 }
 
 
+// Themestyles
+let themeStyles = (textColor, bg, bgSize, bgColor, bgBlendMode, textareaValue) => {
+  textarea.style.color = textColor;
+  textarea.style.background = bg;
+  textarea.style.backgroundSize = bgSize;
+  textarea.style.backgroundColor = bgColor;
+  textarea.style.backgroundBlendMode = bgBlendMode;
+  textarea.value = textareaValue;
+}
+
+
 // Themes
 let themes = () => {
   if (textarea.value === "nope:theme") {
 
     let theme = prompt(`
       Available Themes:
-      - deadpool
-      - halloween
+      - perscholas
       - manara
       - matrix
       - tishana
     `)
 
-    if (theme.toLowerCase() === "deadpool") {
-      textarea.style.backgroundColor = "black";
-      textarea.style.color = "red";
-      textarea.value = '';
-    }
-
-    if (theme.toLowerCase() === "matrix") {
-      textarea.style.backgroundColor = "black";
-      textarea.style.color = "greenyellow";
-      textarea.value = '';
+    if (theme.toLowerCase() === "perscholas") {
+      themeStyles("orange", "url('assets/perscholas.png') no-repeat center", "cover", "rgba(0, 0, 0, 1)", "ligthen", '');
     }
 
     if (theme.toLowerCase() === "manara") {
-      textarea.style.backgroundColor = "black";
-      textarea.style.color = "blue";
-      textarea.style.background = "url('assets/manara.png') no-repeat center";
-      textarea.style.backgroundSize = "cover";
-      textarea.style.backgroundColor = "rgba(255, 255, 255, 0.5)";
-      textarea.style.backgroundBlendMode = "lighten";
-      textarea.value = '';
+      themeStyles("blue", "url('assets/manara.png') no-repeat center", "cover", "rgba(255, 255, 255, 0.5)", "ligthen", '');
+    }
+
+    if (theme.toLowerCase() === "matrix") {
+      themeStyles("greenyellow", "url('assets/matrix.gif') no-repeat center", "cover", "rgba(255, 255, 255, 1)", "ligthen", '');
     }
 
     if (theme.toLowerCase() === "tishana") {
-      textarea.style.backgroundColor = "white";
-      textarea.style.color = "hotpink";
-      textarea.style.background = "url('assets/jigglypuff.gif') no-repeat center";
-      textarea.style.backgroundSize = "cover";
-      textarea.style.backgroundColor = "rgba(255, 255, 255, 0.5)";
-      textarea.style.backgroundBlendMode = "lighten";
-      textarea.value = '';
+      themeStyles("hotpink", "url('assets/jigglypuff.gif') no-repeat center", "cover", "rgba(255, 255, 255, 0.5)", "ligthen", '');
     }
   }
 }
