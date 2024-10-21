@@ -28,21 +28,59 @@ let snippets = {
 setTimeout(() => {textarea.focus();}, 1000);
 
 
-// Code snippets
-let updateOuput = () => {
-  if (textarea.value === "nope:!") {
-    textarea.value = snippets["nope:!"];
-  }
+// // Get textContent
+// let outputText = () => {
+//   let outputContent = output.textContent.split('\n');
 
-  if (textarea.value === "nope:css") {
-    textarea.value = snippets["nope:css"];
-  }
+//   for (i in outputContent) {
+//     if (outputContent[i] === "nope:!") {
+//       output.innerHTML = output.innerHTML.replaceAll(outputContent[i], "HELLO");
+//     }
+//   }
+//   textarea.value = output.innerHTML;
 
-  if (textarea.value === "nope:red") {
-    textarea.value = snippets["nope:red"];
+
+//   return outputContent;
+// }
+
+
+// Get textContent
+let codeSnippets = () => {
+  let textareaSplit = textarea.value.split('\n')
+
+  for (i in textareaSplit) {
+    if (textareaSplit[i] === "nope:!") {
+      textarea.value = textarea.value.replaceAll(textareaSplit[i], snippets["nope:!"]);
+    }
+
+    if (textareaSplit[i] === "nope:css") {
+      textarea.value = textarea.value.replaceAll(textareaSplit[i], snippets["nope:css"]);
+    }
+
+    if (textareaSplit[i] === "nope:red") {
+      textarea.value = textarea.value.replaceAll(textareaSplit[i], snippets["nope:red"]);
+    }
   }
+  
   output.innerHTML = textarea.value;
+  console.log(textarea.value, output.innerHTML);
 }
+
+// // Code snippets
+// let updateOuput = () => {
+//   if (textarea.value === "nope:!") {
+//     textarea.value = snippets["nope:!"];
+//   }
+
+//   if (textarea.value === "nope:css") {
+//     textarea.value = snippets["nope:css"];
+//   }
+
+//   if (textarea.value === "nope:red") {
+//     textarea.value = snippets["nope:red"];
+//   }
+//   output.innerHTML = textarea.value;
+// }
 
 
 // Prevent Default Tab
@@ -132,5 +170,8 @@ let saveFile = () => {
 
 
 // Event Listeners
-textarea.addEventListener("keyup", () => {updateOuput(), themes(), saveFile(), textareaPosition()})
+textarea.addEventListener("keyup", () => {
+  codeSnippets(), themes(), saveFile(), textareaPosition()
+});
+
 textarea.addEventListener("keydown", (e) => {preventTab(e)});
