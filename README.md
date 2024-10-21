@@ -8,7 +8,7 @@ Snippets:
 - nope:theme => manara, tishana...
 - nope:lorem => lorem ipsum
 - nope:red => 🐰🥚
-- nope:save => "Ain't Nobody Got Time For That"
+- command + s => save file
 
 ![VSNope](assets/vsnope_original.gif "VSNope")
 <!-- ![VSNope](assets/vsnope.gif "VSNope") -->
