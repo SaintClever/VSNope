@@ -155,7 +155,7 @@ let saveFile = () => {
 
 // Event Listeners
 textarea.addEventListener("keyup", () => {
-  codeSnippets(), themes(), saveFile()
+  codeSnippets(), themes(), saveFile(), dataStorage()
 });
 
 textarea.addEventListener("keydown", (e) => {preventTab(e)});
