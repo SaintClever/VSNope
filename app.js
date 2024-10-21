@@ -28,23 +28,7 @@ let snippets = {
 setTimeout(() => {textarea.focus();}, 1000);
 
 
-// // Get textContent
-// let outputText = () => {
-//   let outputContent = output.textContent.split('\n');
-
-//   for (i in outputContent) {
-//     if (outputContent[i] === "nope:!") {
-//       output.innerHTML = output.innerHTML.replaceAll(outputContent[i], "HELLO");
-//     }
-//   }
-//   textarea.value = output.innerHTML;
-
-
-//   return outputContent;
-// }
-
-
-// Get textContent
+// Get code snippets
 let codeSnippets = () => {
   let textareaSplit = textarea.value.split('\n')
 
@@ -63,24 +47,7 @@ let codeSnippets = () => {
   }
   
   output.innerHTML = textarea.value;
-  console.log(textarea.value, output.innerHTML);
 }
-
-// // Code snippets
-// let updateOuput = () => {
-//   if (textarea.value === "nope:!") {
-//     textarea.value = snippets["nope:!"];
-//   }
-
-//   if (textarea.value === "nope:css") {
-//     textarea.value = snippets["nope:css"];
-//   }
-
-//   if (textarea.value === "nope:red") {
-//     textarea.value = snippets["nope:red"];
-//   }
-//   output.innerHTML = textarea.value;
-// }
 
 
 // Prevent Default Tab
