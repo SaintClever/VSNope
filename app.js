@@ -146,16 +146,26 @@ let themes = () => {
 
 // Save File
 let saveFile = () => {
-  if (textarea.value === "nope:save") {
-    window.open("https://www.youtube.com/watch?v=bFEoMO0pc7k&ab_channel=TheParodyFactory");
-    textarea.value = '';
-  }
+  let file = new Blob([output.innerHTML], {type: "text/plain"});
+  let saveAnchor = document.createElement("a");
+
+  saveAnchor.setAttribute("href", URL.createObjectURL(file));
+  saveAnchor.setAttribute("download", "vsnope.html");
+  saveAnchor.textContent = ""; // Make link none existing to human eye
+  container.prepend(saveAnchor);
+  saveAnchor.click();
+  saveAnchor.remove();
 }
 
 
 // Event Listeners
-textarea.addEventListener("keyup", () => {
-  codeSnippets(), themes(), saveFile(), dataStorage()
-});
+textarea.addEventListener("keyup", () => codeSnippets(), themes());
 
-textarea.addEventListener("keydown", (e) => {preventTab(e)});
+textarea.addEventListener("keydown", (e) => preventTab(e));
+
+document.addEventListener('keydown', (e) => {
+  if (e.metaKey && e.key === "s") {
+    e.preventDefault()
+    saveFile();
+  }
+});
