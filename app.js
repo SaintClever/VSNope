@@ -23,7 +23,7 @@ let snippets = {
 </body>
 </html>`,
 
-"nope:li": `Experienced Full-Stack Developer specializing in Python and JavaScript with a strong background in automation, web development, and data analysis. Eager to leverage my technical expertise to contribute to innovative software development projects.
+"nope:lorem": `Experienced Full-Stack Developer specializing in Python and JavaScript with a strong background in automation, web development, and data analysis. Eager to leverage my technical expertise to contribute to innovative software development projects.
 
 自動化、Web 開発、データ分析の強力な背景を持つ、Python と JavaScript を専門とする経験豊富なフルスタック開発者。私の技術的専門知識を活用して、革新的なソフトウェア開発プロジェクトに貢献したいと考えています。`
 };
@@ -34,7 +34,7 @@ setTimeout(() => {textarea.focus();}, 1000);
 
 
 // Orientation
-let position = () => {
+let inputOrientation = () => {
   container.removeChild(textarea);
   textarea.setAttribute("name", "textarea");
   textarea.setAttribute("id", "textarea");
@@ -42,13 +42,13 @@ let position = () => {
 }
 
 let positionRight = () => {
-    position();
+    inputOrientation();
     container.append(textarea);
     textarea.focus();
   }
   
 let positionLeft = () => {
-    position();
+    inputOrientation();
     container.prepend(textarea);
     textarea.focus();
 }
@@ -71,8 +71,8 @@ let codeSnippets = () => {
       textarea.value = textarea.value.replaceAll(textareaSplit[i], snippets["nope:red"]);
     }
 
-    if (textareaSplit[i] === "nope:li") {
-      textarea.value = textarea.value.replaceAll(textareaSplit[i], snippets["nope:li"]);
+    if (textareaSplit[i] === "nope:lorem") {
+      textarea.value = textarea.value.replaceAll(textareaSplit[i], snippets["nope:lorem"]);
     }
 
     if (textareaSplit[i] === "nope:right") {
@@ -98,43 +98,47 @@ let preventTab = (e) => {
 
 
 // Themestyles
-let themeStyles = (textColor, bg, bgSize, bgColor, bgBlendMode, textareaValue) => {
+let themeStyles = (textColor, bg, bgSize, bgColor, bgBlendMode) => {
   textarea.style.color = textColor;
   textarea.style.background = bg;
   textarea.style.backgroundSize = bgSize;
   textarea.style.backgroundColor = bgColor;
   textarea.style.backgroundBlendMode = bgBlendMode;
-  textarea.value = textareaValue;
 }
 
 
 // Themes
-// NOTE: Error in values, because it clears user input
 let themes = () => {
-  if (textarea.value === "nope:theme") {
+  let textareaSplit = textarea.value.split('\n');
 
-    let theme = prompt(`
-      Available Themes:
-      - perscholas
-      - manara
-      - matrix
-      - tishana
-    `)
+  for (i in textareaSplit) {
+    if (textareaSplit[i] === "nope:theme") {
 
-    if (theme.toLowerCase() === "perscholas") {
-      themeStyles("orange", "url('assets/perscholas.png') no-repeat center", "cover", "rgba(0, 0, 0, 1)", "ligthen", '');
-    }
+      let userTheme = prompt(`
+        Available Themes:
+        - perscholas
+        - manara
+        - matrix
+        - tishana
+      `)
 
-    if (theme.toLowerCase() === "manara") {
-      themeStyles("blue", "url('assets/manara.png') no-repeat center", "cover", "rgba(255, 255, 255, 0.5)", "ligthen", '');
-    }
+      if (userTheme.toLowerCase() === "perscholas") {
+        themeStyles("orange", "url('assets/perscholas.png') no-repeat center", "cover", "rgba(0, 0, 0, 1)", "ligthen", '');
+      }
 
-    if (theme.toLowerCase() === "matrix") {
-      themeStyles("greenyellow", "url('assets/matrix.gif') no-repeat center", "cover", "rgba(255, 255, 255, 1)", "ligthen", '');
-    }
+      if (userTheme.toLowerCase() === "manara") {
+        themeStyles("blue", "url('assets/manara.png') no-repeat center", "cover", "rgba(255, 255, 255, 0.5)", "ligthen", '');
+      }
 
-    if (theme.toLowerCase() === "tishana") {
-      themeStyles("hotpink", "url('assets/jigglypuff.gif') no-repeat center", "cover", "rgba(255, 255, 255, 0.5)", "ligthen", '');
+      if (userTheme.toLowerCase() === "matrix") {
+        themeStyles("greenyellow", "url('assets/matrix.gif') no-repeat center", "cover", "rgba(255, 255, 255, 1)", "ligthen", '');
+      }
+
+      if (userTheme.toLowerCase() === "tishana") {
+        themeStyles("hotpink", "url('assets/jigglypuff.gif') no-repeat center", "cover", "rgba(255, 255, 255, 0.5)", "ligthen", '');
+      }
+
+      textarea.value = output.innerHTML.replaceAll(textareaSplit[i], "");
     }
   }
 }
