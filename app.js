@@ -21,11 +21,37 @@ let snippets = {
 <body>
 
 </body>
-</html>`};
+</html>`,
+
+"nope:li": `Experienced Full-Stack Developer specializing in Python and JavaScript with a strong background in automation, web development, and data analysis. Eager to leverage my technical expertise to contribute to innovative software development projects.
+
+自動化、Web 開発、データ分析の強力な背景を持つ、Python と JavaScript を専門とする経験豊富なフルスタック開発者。私の技術的専門知識を活用して、革新的なソフトウェア開発プロジェクトに貢献したいと考えています。`
+};
 
 
 // focus
 setTimeout(() => {textarea.focus();}, 1000);
+
+
+// Orientation
+let position = () => {
+  container.removeChild(textarea);
+  textarea.setAttribute("name", "textarea");
+  textarea.setAttribute("id", "textarea");
+  textarea.setAttribute("placeholder", "🫵 <h1>VSNode: your code goes here</h1> 👈");
+}
+
+let positionRight = () => {
+    position();
+    container.append(textarea);
+    textarea.focus();
+  }
+  
+let positionLeft = () => {
+    position();
+    container.prepend(textarea);
+    textarea.focus();
+}
 
 
 // Get code snippets
@@ -43,6 +69,18 @@ let codeSnippets = () => {
 
     if (textareaSplit[i] === "nope:red") {
       textarea.value = textarea.value.replaceAll(textareaSplit[i], snippets["nope:red"]);
+    }
+
+    if (textareaSplit[i] === "nope:li") {
+      textarea.value = textarea.value.replaceAll(textareaSplit[i], snippets["nope:li"]);
+    }
+
+    if (textareaSplit[i] === "nope:right") {
+      positionRight();
+    }
+
+    if (textareaSplit[i] === "nope:left") {
+      positionLeft();
     }
   }
   
@@ -102,31 +140,6 @@ let themes = () => {
 }
 
 
-// Orientation
-let leftOrRight = () => {
-  container.removeChild(textarea);
-  textarea.setAttribute("name", "textarea");
-  textarea.setAttribute("id", "textarea");
-  textarea.setAttribute("placeholder", "🫵 <h1>VSNode: your code goes here</h1> 👈");
-  textarea.value = '';
-  output.innerHTML = '';
-}
-
-let textareaPosition = () => {
-  if (textarea.value === "nope:right") {
-    leftOrRight();
-    container.append(textarea);
-    textarea.focus();
-  }
-
-  if (textarea.value === "nope:left") {
-    leftOrRight();
-    container.prepend(textarea);
-    textarea.focus();
-  }
-}
-
-
 // Save File
 let saveFile = () => {
   if (textarea.value === "nope:save") {
@@ -138,7 +151,7 @@ let saveFile = () => {
 
 // Event Listeners
 textarea.addEventListener("keyup", () => {
-  codeSnippets(), themes(), saveFile(), textareaPosition()
+  codeSnippets(), themes(), saveFile()
 });
 
 textarea.addEventListener("keydown", (e) => {preventTab(e)});
