@@ -158,6 +158,17 @@ let saveFile = () => {
 }
 
 
+// Local Storage
+let storeData = () => {
+  localStorage.setItem("textarea", textarea.value);
+}
+
+if (localStorage.getItem("textarea")) {
+  textarea.value = localStorage.getItem("textarea");
+  output.innerHTML = localStorage.getItem("textarea");
+}
+
+
 // Event Listeners
 textarea.addEventListener("keyup", () => codeSnippets(), themes());
 
@@ -165,7 +176,8 @@ textarea.addEventListener("keydown", (e) => preventTab(e));
 
 document.addEventListener('keydown', (e) => {
   if (e.metaKey && e.key === "s") {
-    e.preventDefault()
+    e.preventDefault();
+    storeData();
     saveFile();
   }
 });
