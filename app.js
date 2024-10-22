@@ -134,23 +134,24 @@ let themes = () => {
         - tishana
       `)
 
-      if (userTheme.toLowerCase() === "perscholas") {
-        themeStyles("orange", "url('assets/perscholas.png') no-repeat center", "cover", "rgba(0, 0, 0, 1)", "ligthen", '');
-      }
+      if (userTheme) {
+        if (userTheme.toLowerCase() === "perscholas") {
+          themeStyles("orange", "url('assets/perscholas.png') no-repeat center", "cover", "rgba(0, 0, 0, 1)", "ligthen", '');
+        }
 
-      if (userTheme.toLowerCase() === "manara") {
-        themeStyles("blue", "url('assets/manara.png') no-repeat center", "cover", "rgba(255, 255, 255, 0.5)", "ligthen", '');
-      }
+        if (userTheme.toLowerCase() === "manara") {
+          themeStyles("blue", "url('assets/manara.png') no-repeat center", "cover", "rgba(255, 255, 255, 0.5)", "ligthen", '');
+        }
 
-      if (userTheme.toLowerCase() === "matrix") {
-        themeStyles("greenyellow", "url('assets/matrix.gif') no-repeat center", "cover", "rgba(255, 255, 255, 1)", "ligthen", '');
-      }
+        if (userTheme.toLowerCase() === "matrix") {
+          themeStyles("greenyellow", "url('assets/matrix.gif') no-repeat center", "cover", "rgba(255, 255, 255, 1)", "ligthen", '');
+        }
 
-      if (userTheme.toLowerCase() === "tishana") {
-        themeStyles("hotpink", "url('assets/jigglypuff.gif') no-repeat center", "cover", "rgba(255, 255, 255, 0.5)", "ligthen", '');
+        if (userTheme.toLowerCase() === "tishana") {
+          themeStyles("hotpink", "url('assets/jigglypuff.gif') no-repeat center", "cover", "rgba(255, 255, 255, 0.5)", "ligthen", '');
+        }
+        textarea.value = output.innerHTML.replaceAll(textareaSplit[i], "");
       }
-
-      textarea.value = output.innerHTML.replaceAll(textareaSplit[i], "");
     }
   }
 }
