@@ -161,7 +161,10 @@ let saveFile = () => {
   // Dialog
   dialog.setAttribute("open", "");
   dialog.innerHTML = "<h1>Saved</h1>";
-  dialog.style.padding = "25px";
+  dialog.style.backgroundColor = "slateblue";
+  dialog.style.color = "white"; 
+  dialog.style.borderRadius = "5px";
+  dialog.style.padding = "5px 50px";
   output.prepend(dialog);
 }
 
