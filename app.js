@@ -53,6 +53,18 @@ let positionLeft = () => {
     textarea.focus();
 }
 
+let dialogBox = (title) => {
+  let dialog = document.createElement("dialog");
+
+  dialog.setAttribute("open", "");
+  dialog.innerHTML = title;
+  dialog.style.backgroundColor = "slateblue";
+  dialog.style.color = "white"; 
+  dialog.style.borderRadius = "5px";
+  dialog.style.padding = "5px 50px";
+  output.prepend(dialog);
+}
+
 
 // Get code snippets
 let codeSnippets = () => {
@@ -148,7 +160,6 @@ let themes = () => {
 let saveFile = () => {
   let file = new Blob([output.innerHTML], {type: "text/plain"});
   let saveAnchor = document.createElement("a");
-  let dialog = document.createElement("dialog");
 
   // Anchor
   saveAnchor.setAttribute("href", URL.createObjectURL(file));
@@ -159,13 +170,7 @@ let saveFile = () => {
   saveAnchor.remove();
   
   // Dialog
-  dialog.setAttribute("open", "");
-  dialog.innerHTML = "<h1>Saved</h1>";
-  dialog.style.backgroundColor = "slateblue";
-  dialog.style.color = "white"; 
-  dialog.style.borderRadius = "5px";
-  dialog.style.padding = "5px 50px";
-  output.prepend(dialog);
+  dialogBox("<h1>Saved</h1>");
 }
 
 
@@ -181,9 +186,9 @@ if (localStorage.getItem("textarea")) {
 
 
 // Event Listeners
-textarea.addEventListener("keyup", () => codeSnippets(), themes());
+textarea.addEventListener("keyup", () => {codeSnippets(), themes()});
 
-textarea.addEventListener("keydown", (e) => preventTab(e));
+textarea.addEventListener("keydown", (e) => {preventTab(e)});
 
 document.addEventListener('keydown', (e) => {
   if (e.metaKey && e.key === "s") {
