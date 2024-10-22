@@ -148,13 +148,21 @@ let themes = () => {
 let saveFile = () => {
   let file = new Blob([output.innerHTML], {type: "text/plain"});
   let saveAnchor = document.createElement("a");
+  let dialog = document.createElement("dialog");
 
+  // Anchor
   saveAnchor.setAttribute("href", URL.createObjectURL(file));
   saveAnchor.setAttribute("download", "vsnope.html");
   saveAnchor.textContent = ""; // Make link none existing to human eye
   container.prepend(saveAnchor);
   saveAnchor.click();
   saveAnchor.remove();
+  
+  // Dialog
+  dialog.setAttribute("open", "");
+  dialog.innerHTML = "<h1>Saved</h1>";
+  dialog.style.padding = "25px";
+  output.prepend(dialog);
 }
 
 
