@@ -53,11 +53,11 @@ let positionLeft = () => {
     textarea.focus();
 }
 
-let dialogBox = (title) => {
+let dialogBox = (nestedHTML) => {
   let dialog = document.createElement("dialog");
 
   dialog.setAttribute("open", "");
-  dialog.innerHTML = title;
+  dialog.innerHTML = nestedHTML;
   dialog.style.backgroundColor = "slateblue";
   dialog.style.color = "white"; 
   dialog.style.borderRadius = "5px";
