@@ -178,11 +178,23 @@ let saveFile = () => {
 // Local Storage
 let storeData = () => {
   localStorage.setItem("textarea", textarea.value);
+  localStorage.setItem("theme", JSON.stringify({
+    "color": textarea.style.color,
+    "background": textarea.style.background,
+    "backgroundSize": textarea.style.backgroundSize,
+    "backgroundColor": textarea.style.backgroundColor,
+    "backgroundBlendMode": textarea.style.backgroundBlendMode,
+  }));
 }
 
-if (localStorage.getItem("textarea")) {
+if (localStorage.getItem("textarea") || localStorage.getItem("theme")) {
   textarea.value = localStorage.getItem("textarea");
   output.innerHTML = localStorage.getItem("textarea");
+  let textareaStyles = JSON.parse(localStorage.getItem("theme"));
+
+  for (let i in textareaStyles) {
+    textarea.style[i] = textareaStyles[i];
+  }
 }
 
 
